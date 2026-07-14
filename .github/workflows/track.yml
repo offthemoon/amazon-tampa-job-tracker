@@ -1,0 +1,38 @@
+name: Track Amazon Tampa jobs
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every 10 min (GitHub may delay by 5-15 min)
+  workflow_dispatch: {}       # allows manual runs from the Actions tab
+
+# Never let two checks run at once (they'd race on the state commit).
+concurrency:
+  group: tracker
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for new jobs
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python3 tracker.py --once --no-notify
+
+      - name: Persist state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          [ -f history.jsonl ] && git add history.jsonl
+          if ! git diff --cached --quiet; then
+            git commit -m "state: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push
+          fi

@@ -1,0 +1,7 @@
+__pycache__/
+logs/
+.DS_Store
+
+# legacy Playwright-based tracker (superseded by tracker.py)
+main.py
+seen_jobs.json
