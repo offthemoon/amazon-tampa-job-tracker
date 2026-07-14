@@ -5,3 +5,6 @@ logs/
 # legacy Playwright-based tracker (superseded by tracker.py)
 main.py
 seen_jobs.json
+
+# chat transcripts stay local (contain session details)
+chat-logs/
