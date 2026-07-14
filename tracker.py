@@ -310,10 +310,14 @@ def check_once(client: AmazonJobsClient, state: dict, args) -> dict:
                 notify_desktop("Amazon job pay change", line)
             notify_discord(args.webhook, f"**Pay change**\n{line}\n{new['url']}")
 
+    # Only report state as dirty when something actually changed, so the
+    # GitHub Actions run doesn't commit on every check.
+    dirty = first_run or bool(added or removed or changed)
     state["jobs"] = current
     state["baseline_done"] = True
-    state["last_check"] = datetime.now().isoformat(timespec="seconds")
-    return state
+    if dirty:
+        state["last_check"] = datetime.now().isoformat(timespec="seconds")
+    return state, dirty
 
 
 # ----------------------------- main ----------------------------------------
@@ -339,8 +343,9 @@ def main() -> None:
     consecutive_failures = 0
     while True:
         try:
-            state = check_once(client, state, args)
-            save_state(state)
+            state, dirty = check_once(client, state, args)
+            if dirty:
+                save_state(state)
             consecutive_failures = 0
         except KeyboardInterrupt:
             raise
