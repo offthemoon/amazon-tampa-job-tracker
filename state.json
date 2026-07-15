@@ -1,6 +1,19 @@
 {
   "baseline_done": true,
   "jobs": {
+    "JOB-US-0000018445": {
+      "bonusPay": 0,
+      "employmentType": "Seasonal",
+      "jobId": "JOB-US-0000018445",
+      "jobType": "FULL_TIME",
+      "location": "Auburndale, FL",
+      "payMax": 19.0,
+      "payMin": 19.0,
+      "scheduleCount": 1,
+      "surgePay": 0,
+      "title": "Warehouse Equipment Operator",
+      "url": "https://hiring.amazon.com/app#/jobDetail?jobId=JOB-US-0000018445&locale=en-US"
+    },
     "a0Rar000002jTUXEA2": {
       "bonusPay": 0,
       "employmentType": "Regular",
@@ -15,5 +28,5 @@
       "url": "https://hiring.amazon.com/app#/jobDetail?jobId=a0Rar000002jTUXEA2&locale=en-US"
     }
   },
-  "last_check": "2026-07-15T06:33:36"
+  "last_check": "2026-07-15T10:28:36"
 }
