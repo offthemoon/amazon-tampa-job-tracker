@@ -1,19 +1,5 @@
 {
   "baseline_done": true,
-  "jobs": {
-    "a0Rar000002jTUXEA2": {
-      "bonusPay": 0,
-      "employmentType": "Regular",
-      "jobId": "a0Rar000002jTUXEA2",
-      "jobType": "Full-time",
-      "location": "Virtual, N/A",
-      "payMax": 12.0,
-      "payMin": 12.0,
-      "scheduleCount": 1,
-      "surgePay": 0,
-      "title": "Customer Service Associate",
-      "url": "https://hiring.amazon.com/app#/jobDetail?jobId=a0Rar000002jTUXEA2&locale=en-US"
-    }
-  },
-  "last_check": "2026-07-15T11:07:31"
+  "jobs": {},
+  "last_check": "2026-07-15T19:15:48"
 }
