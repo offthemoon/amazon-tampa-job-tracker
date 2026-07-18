@@ -28,3 +28,8 @@ python3 tracker.py --once         # single check
 python3 tracker.py --radius 75    # widen search radius
 python3 tracker.py --webhook https://discord.com/api/webhooks/...
 ```
+
+ex. of it working
+
+<img width="908" height="649" alt="image" src="https://github.com/user-attachments/assets/effd5bed-e46e-46cc-8a17-0d6a04f5d3c0" />
+
